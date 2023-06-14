@@ -15,4 +15,13 @@ class ImageModel {
       large: json['large'],
     );
   }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['thumb'] = thumb;
+    data['small'] = small;
+    data['large'] = large;
+
+    return data;
+  }
 }
