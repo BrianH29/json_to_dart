@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 import 'package:json_to_dart/models/links_model.dart';
+import 'package:json_to_dart/models/market_data/market_model.dart';
 
 import 'image_model.dart';
 
@@ -9,6 +10,7 @@ class CoinListModel {
   final List<String>? categories;
   final ImageModel image;
   final LinksModel links;
+  final MarketModel marketData;
 
   CoinListModel({
     required this.id,
@@ -17,6 +19,7 @@ class CoinListModel {
     required this.categories,
     required this.image,
     required this.links,
+    required this.marketData,
   });
 
   factory CoinListModel.fromJson(Map<String, dynamic> json) {
@@ -27,6 +30,7 @@ class CoinListModel {
       categories: json['categories'].cast<String>(),
       image: ImageModel.fromJson(json['image']),
       links: LinksModel.fromJson(json['links']),
+      marketData: MarketModel.fromJson(json['market_data']),
     );
   }
 
@@ -38,6 +42,7 @@ class CoinListModel {
     data['categories'] = categories;
     data['image'] = image;
     data['links'] = links;
+    data['market_data'] = marketData;
 
     return data;
   }

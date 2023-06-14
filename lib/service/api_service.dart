@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:json_to_dart/models/links_model.dart';
+import 'package:json_to_dart/models/market_data/market_model.dart';
 import '../models/coin_list_model.dart';
 import 'dart:developer' as developer;
 
@@ -23,14 +24,13 @@ class ApiService {
 
       ImageModel image = coinList.image;
       LinksModel links = coinList.links;
+      MarketModel market = coinList.marketData;
 
       developer.log('${coinList.id} ', name: 'api_service id');
-      developer.log('${coinList.symbol} ', name: 'api_service symbol');
-      developer.log('${coinList.categories} ', name: 'api_service categories');
       developer.log('${image.large} ', name: 'api_service large image');
       developer.log('${links.homepage} ', name: 'api_service links homepage');
-      developer.log('${links.officialForumUrl} ',
-          name: 'api_service links officialForumUrl');
+      developer.log('${market.currentPrice.aed} ',
+          name: 'api_service market aed');
 
       return coinList;
     }
