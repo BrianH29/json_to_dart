@@ -6,7 +6,7 @@ import '../models/coin_list_model.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  final Future<List<CoinListModel>> coinList = ApiService.getCoinList();
+  late Future<CoinListModel> coinList;
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +18,14 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      body: Builder(builder: (context) {
-        return Center(
-          child: OutlinedButton(
-            onPressed: () async {
-              await ApiService.getCoinList();
-            },
-            child: const Text('press'),
-          ),
-        );
-      }),
+      body: Center(
+        child: OutlinedButton(
+          onPressed: () async {
+            coinList = ApiService().getCoinList();
+          },
+          child: const Text('press'),
+        ),
+      ),
     );
   }
 }
